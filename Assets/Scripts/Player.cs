@@ -16,25 +16,32 @@ public class Player : MonoBehaviour
 
     public int count = 1;
     public int score = 0;
-    
+    public float horizontal;
+    public Joystick joystick;
+    public Button btn;
+
     public Text ScoreText;
     // Start is called before the first frame update
     void Start()
     {
+        //dkzhfdskn
+        //Button btn = Player.GetComponent<Button>();
+        btn.onClick.AddListener(Jump);
         rd = GetComponent<Rigidbody2D>();
 
         
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        moveVector.x = Input.GetAxis("Horizontal");
+        horizontal = joystick.Horizontal;
+        moveVector.x = horizontal;
         //moveVector.y = Input.GetAxis("Vertical");
         rd.velocity = new Vector2(moveVector.x * speed, rd.velocity.y);
         //rd.AddForce(moveVector * speed);
         //
-        Jump();
+        /*if()Jump;*/
         CheckingGround();
         if(transform.position.y < -7f)
         {
@@ -46,7 +53,7 @@ public class Player : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && onGround)
+        if (onGround)
         {
             rd.velocity = new Vector2(rd.velocity.x, jumpForce);
         }
