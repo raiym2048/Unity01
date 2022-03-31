@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //dkzhfdskn
+        //dkzhfdsknada
         //Button btn = Player.GetComponent<Button>();
         btn.onClick.AddListener(Jump);
         rd = GetComponent<Rigidbody2D>();
