@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         horizontal = joystick.Horizontal;
         moveVector.x = horizontal;
