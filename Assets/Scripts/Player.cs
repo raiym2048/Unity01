@@ -68,10 +68,24 @@ public class Player : MonoBehaviour
         }
         if (coll.gameObject.tag == "enemy")
         {
+            Debug.Log(coll.GetComponent<Collider>().GetType());
+            /*if (coll.GetComponent<Collider>().GetType() == typeof(BoxCollider2D)){
+                SceneManager.LoadScene(0);
+            }
+            if (coll.GetComponent<Collider>().GetType() == typeof(CircleCollider2D))
+            {
+                AddCoid();
+                Destroy(coll.gameObject);
+            }*/
+
             //SceneManager.LoadScene(0);
-            AddCoid();
-            Destroy(coll.gameObject);
+            
         }
+        /*if (coll.gameObject.tag == "Destroy")
+        {
+            SceneManager.LoadScene(0);
+            
+        }*/
     }
     public void AddCoid()
     {
@@ -87,13 +101,13 @@ public class Player : MonoBehaviour
     {
         onGround = Physics2D.OverlapCircle(GroundCheck.position, checkRadius, Ground);
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    /*private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "enemy")
         {
             SceneManager.LoadScene(0);
         }
-    }
+    }*/
 
     /*private void OnTriggerEnter2D(Collider2D collision)
     {
